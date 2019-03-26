@@ -16,7 +16,7 @@ var models = {
 };
 var validationService = new tsoa_1.ValidationService(models);
 function RegisterRoutes(app) {
-    app.get('/hotels', function (request, response, next) {
+    app.get('/api/v1/hotels', function (request, response, next) {
         var args = {};
         var validatedArgs = [];
         try {
@@ -29,7 +29,7 @@ function RegisterRoutes(app) {
         var promise = controller.getAll.apply(controller, validatedArgs);
         promiseHandler(controller, promise, response, next);
     });
-    app.get('/hotels/:id', function (request, response, next) {
+    app.get('/api/v1/hotels/:id', function (request, response, next) {
         var args = {
             id: { "in": "path", "name": "id", "required": true, "dataType": "string" },
         };
@@ -44,7 +44,7 @@ function RegisterRoutes(app) {
         var promise = controller.getById.apply(controller, validatedArgs);
         promiseHandler(controller, promise, response, next);
     });
-    app.post('/hotels', function (request, response, next) {
+    app.post('/api/v1/hotels', function (request, response, next) {
         var args = {
             hotel: { "in": "body-prop", "name": "hotel", "required": true, "ref": "HotelModel" },
         };
@@ -59,7 +59,7 @@ function RegisterRoutes(app) {
         var promise = controller.add.apply(controller, validatedArgs);
         promiseHandler(controller, promise, response, next);
     });
-    app.delete('/hotels/:id', function (request, response, next) {
+    app.delete('/api/v1/hotels/:id', function (request, response, next) {
         var args = {
             id: { "in": "path", "name": "id", "required": true, "dataType": "string" },
         };

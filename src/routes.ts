@@ -18,7 +18,7 @@ const models: TsoaRoute.Models = {
 const validationService = new ValidationService(models);
 
 export function RegisterRoutes(app: express.Express) {
-    app.get('/hotels',
+    app.get('/api/v1/hotels',
         function(request: any, response: any, next: any) {
             const args = {
             };
@@ -36,7 +36,7 @@ export function RegisterRoutes(app: express.Express) {
             const promise = controller.getAll.apply(controller, validatedArgs as any);
             promiseHandler(controller, promise, response, next);
         });
-    app.get('/hotels/:id',
+    app.get('/api/v1/hotels/:id',
         function(request: any, response: any, next: any) {
             const args = {
                 id: { "in": "path", "name": "id", "required": true, "dataType": "string" },
@@ -55,7 +55,7 @@ export function RegisterRoutes(app: express.Express) {
             const promise = controller.getById.apply(controller, validatedArgs as any);
             promiseHandler(controller, promise, response, next);
         });
-    app.post('/hotels',
+    app.post('/api/v1/hotels',
         function(request: any, response: any, next: any) {
             const args = {
                 hotel: { "in": "body-prop", "name": "hotel", "required": true, "ref": "HotelModel" },
@@ -74,7 +74,7 @@ export function RegisterRoutes(app: express.Express) {
             const promise = controller.add.apply(controller, validatedArgs as any);
             promiseHandler(controller, promise, response, next);
         });
-    app.delete('/hotels/:id',
+    app.delete('/api/v1/hotels/:id',
         function(request: any, response: any, next: any) {
             const args = {
                 id: { "in": "path", "name": "id", "required": true, "dataType": "string" },

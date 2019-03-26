@@ -17,7 +17,7 @@ var Server = (function () {
         routes_1.RegisterRoutes(this.app);
         try {
             var swaggerDocumnet = require("../../swagger.json");
-            this.app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocumnet));
+            this.app.use("/api/v1/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocumnet));
         }
         catch (err) {
             console.log(err);

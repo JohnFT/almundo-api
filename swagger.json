@@ -1,5 +1,5 @@
 {
-	"basePath": "/",
+	"basePath": "/api/v1",
 	"consumes": [
 		"application/json"
 	],
@@ -79,8 +79,8 @@
 					"application/json"
 				],
 				"responses": {
-					"200": {
-						"description": "Ok",
+					"201": {
+						"description": "Created",
 						"schema": {
 							"$ref": "#/definitions/HotelModel"
 						}

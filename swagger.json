@@ -1,0 +1,167 @@
+{
+	"basePath": "/",
+	"consumes": [
+		"application/json"
+	],
+	"definitions": {
+		"HotelModel": {
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"stars": {
+					"type": "number",
+					"format": "double"
+				},
+				"price": {
+					"type": "number",
+					"format": "double"
+				},
+				"image": {
+					"type": "string"
+				},
+				"amenities": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"default": [],
+					"x-nullable": true
+				}
+			},
+			"required": [
+				"id",
+				"name",
+				"stars",
+				"price",
+				"image",
+				"amenities"
+			],
+			"type": "object"
+		}
+	},
+	"info": {
+		"title": "amundo-api",
+		"version": "1.0.0",
+		"description": "Almundo api rest typescript",
+		"license": {
+			"name": "MIT"
+		}
+	},
+	"paths": {
+		"/hotels": {
+			"get": {
+				"operationId": "GetAll",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/HotelModel"
+							}
+						}
+					}
+				},
+				"description": "Gets all hotels entity",
+				"security": [],
+				"parameters": []
+			},
+			"post": {
+				"operationId": "Add",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"$ref": "#/definitions/HotelModel"
+						}
+					}
+				},
+				"description": "Adds hotel entity controller",
+				"security": [],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"schema": {
+							"properties": {
+								"hotel": {
+									"$ref": "#/definitions/HotelModel"
+								}
+							},
+							"title": "AddBody",
+							"type": "object",
+							"required": [
+								"hotel"
+							]
+						}
+					}
+				]
+			}
+		},
+		"/hotels/{id}": {
+			"get": {
+				"operationId": "GetById",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"$ref": "#/definitions/HotelModel"
+						}
+					}
+				},
+				"description": "Get hotel entity by id",
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"type": "string"
+					}
+				]
+			},
+			"delete": {
+				"operationId": "Remove",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"$ref": "#/definitions/HotelModel"
+						}
+					}
+				},
+				"description": "Removes hotel entity controller",
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		}
+	},
+	"produces": [
+		"application/json"
+	],
+	"swagger": "2.0",
+	"securityDefinitions": {}
+}

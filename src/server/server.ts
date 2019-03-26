@@ -2,7 +2,6 @@ import express = require("express");
 import { RegisterRoutes } from "../routes";
 import * as swaggerUi from "swagger-ui-express";
 
-
 // create server express
 export default class Server {
   // propierties
@@ -31,6 +30,6 @@ export default class Server {
 
   // start server on port
   start(callback: Function) {
-    this.app.listen(this.port, callback());
+    this.app.listen(process.env.PORT || this.port, callback());
   }
 }

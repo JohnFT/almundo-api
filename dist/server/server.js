@@ -27,7 +27,7 @@ var Server = (function () {
         return new Server(port);
     };
     Server.prototype.start = function (callback) {
-        this.app.listen(this.port, callback());
+        this.app.listen(process.env.PORT || this.port, callback());
     };
     return Server;
 }());

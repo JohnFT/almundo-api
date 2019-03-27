@@ -3,6 +3,7 @@ import routes from "../routes";
 import * as swaggerUi from "swagger-ui-express";
 import cors from "cors";
 import bodyParser = require("body-parser");
+import path from 'path';
 
 // create server express
 export default class Server {
@@ -12,6 +13,12 @@ export default class Server {
   // builder
   constructor(private port: number) {
     this.app = express();
+
+
+    // static route
+    const root = path.normalize(__dirname + '/..');
+    this.app.use('/assets', express.static(`${root}/public`));
+
 
     // coors
     this.app.use(cors());

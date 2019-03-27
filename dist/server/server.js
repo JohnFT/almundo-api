@@ -15,10 +15,13 @@ var routes_1 = __importDefault(require("../routes"));
 var swaggerUi = __importStar(require("swagger-ui-express"));
 var cors_1 = __importDefault(require("cors"));
 var bodyParser = require("body-parser");
+var path_1 = __importDefault(require("path"));
 var Server = (function () {
     function Server(port) {
         this.port = port;
         this.app = express();
+        var root = path_1.default.normalize(__dirname + '/..');
+        this.app.use('/assets', express.static(root + "/public"));
         this.app.use(cors_1.default());
         this.app.use(bodyParser.urlencoded({ extended: false }));
         this.app.use(bodyParser.json());

@@ -10,7 +10,7 @@ Despues de clonar el proyecto:
 
 ## Build
 
-Ejecuta el comando `npm start` para creara una carpeta dist con los archivos traspilados a ES5
+Ejecuta el comando `npm run build` para creara una carpeta dist con los archivos traspilados a ES5
 
 ```
 > npm run build
@@ -18,7 +18,7 @@ Ejecuta el comando `npm start` para creara una carpeta dist con los archivos tra
 
 ## Start Server
 
-Ejecute el comando `npm run start` ppara desplegar el servidor en modo deploy debug, 
+Ejecute el comando `npm run start` para desplegar el servidor en modo deploy debug, 
 esta configurado en el puerto 3000 http://localhost:3000
 
 ```
@@ -51,8 +51,8 @@ DELETE /api/v1/hotels/:id // Eliminar hotel por id
 
   
 
-### server
-Esta capa se encarga de la configuracion del servidor middelwares
+### Server
+Esta capa se encarga de la configuración del servidor y sus middelwares
 
 ### Middelware
 
@@ -60,11 +60,13 @@ Access-Control-Allow-Origin: Permite acceso desde cualquier origen para el consu
 
 Body-Parse: Decodifica los objetos json que vienen en la url de request
 
-Swagger: Crea documentacion del os controladores y cliente de purebas de estos http://localhost:3000/api/v1/docs
-[Demo](http://localhost:3000/api/v1/docs)
+Swagger: Crea documentación de los controladores y cliente de pruebas de estos http://localhost:3000/api/v1/docs
+
+### DEMO
+Clic en [Demo](https://app-almundo-api.herokuapp.com/api/v1/docs/)
 
 ### Public
-Assets de la aplicacion
+Assets de la aplicación
 
 ## Nota
 Puedes utilizar el cliente web [Almundo-Web](https://github.com/JohnFT/almundo-web)

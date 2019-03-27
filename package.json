@@ -6,8 +6,8 @@
   "scripts": {
     "clean": "rimraf dist/*",
     "copy-assets": "ts-node tools/copyAssets",
-    "start": "nodemon dist/index.js",
-    "build": "npm-run-all clean tsc copy-assets",
+    "serve": "nodemon dist/index.js",
+    "start": "npm-run-all clean tsc copy-assets serve",
     "tsc": "tsc"
   },
   "author": "John Alexander Fonseca",

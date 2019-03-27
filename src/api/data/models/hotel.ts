@@ -1,6 +1,6 @@
 import { IHotel } from "../Interfeces/IHotel";
 
-export class HotelModel implements IHotel {
+export class Hotel implements IHotel {
   id: string;
   name: string;
   stars: number;

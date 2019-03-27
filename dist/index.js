@@ -4,7 +4,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var server_1 = __importDefault(require("./server/server"));
-require("./controllers/hotels/routes");
 var server = server_1.default.init(3000);
 server.start(function () { return console.log("Server started"); });
 //# sourceMappingURL=index.js.map

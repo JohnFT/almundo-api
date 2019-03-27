@@ -1,7 +1,8 @@
 import express = require("express");
-import { RegisterRoutes } from "../routes";
+import routes from "../routes";
 import * as swaggerUi from "swagger-ui-express";
 import cors from "cors";
+import bodyParser = require("body-parser");
 
 // create server express
 export default class Server {
@@ -15,8 +16,12 @@ export default class Server {
     // coors
     this.app.use(cors());
 
-    // Registe urls app
-    RegisterRoutes(this.app);
+    //Body parse
+    this.app.use(bodyParser.urlencoded({ extended: false }));
+    this.app.use(bodyParser.json());
+
+    // use routes 
+    routes(this.app);
 
     // intance swagger
     try {

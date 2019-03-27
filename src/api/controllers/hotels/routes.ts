@@ -6,7 +6,7 @@ const router = Router();
 /**
  * Get all hotels  entity
  */
-router.get("/", HotelController.getAll);
+ router.get("/", HotelController.getAll);
 
 /**
  * Get hotel entity by id
@@ -21,6 +21,6 @@ router.post("/", HotelController.add);
 /**
  * Remove hotel |
  */
-router.delete("/", HotelController.remove);
+router.delete("/:id", HotelController.remove);
 
 export default router;

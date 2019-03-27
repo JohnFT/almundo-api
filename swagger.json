@@ -4,7 +4,7 @@
 		"application/json"
 	],
 	"definitions": {
-		"HotelModel": {
+		"Hotel": {
 			"properties": {
 				"id": {
 					"type": "string"
@@ -64,14 +64,41 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/HotelModel"
+								"$ref": "#/definitions/Hotel"
 							}
 						}
 					}
 				},
 				"description": "Gets all hotels entity",
 				"security": [],
-				"parameters": []
+				"parameters": [
+					{
+						"in": "query",
+						"name": "page",
+						"required": false,
+						"format": "double",
+						"type": "number"
+					},
+					{
+						"in": "query",
+						"name": "size",
+						"required": false,
+						"format": "double",
+						"type": "number"
+					},
+					{
+						"in": "query",
+						"name": "stars",
+						"required": false,
+						"type": "string"
+					},
+					{
+						"in": "query",
+						"name": "name",
+						"required": false,
+						"type": "string"
+					}
+				]
 			},
 			"post": {
 				"operationId": "Add",
@@ -82,7 +109,7 @@
 					"201": {
 						"description": "Created",
 						"schema": {
-							"$ref": "#/definitions/HotelModel"
+							"$ref": "#/definitions/Hotel"
 						}
 					}
 				},
@@ -95,7 +122,7 @@
 						"schema": {
 							"properties": {
 								"hotel": {
-									"$ref": "#/definitions/HotelModel"
+									"$ref": "#/definitions/Hotel"
 								}
 							},
 							"title": "AddBody",
@@ -118,7 +145,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/HotelModel"
+							"$ref": "#/definitions/Hotel"
 						}
 					}
 				},
@@ -142,7 +169,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/HotelModel"
+							"$ref": "#/definitions/Hotel"
 						}
 					}
 				},

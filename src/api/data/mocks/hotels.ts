@@ -1,6 +1,7 @@
-import { HotelModel } from "../models/hotel";
+import { Hotel } from "../models/hotel";
 
-export  var  Hotels: HotelModel[] = [
+
+export  var  Hotels: Hotel[] = [
   {
     "id": "249942",
     "name": "Hotel Stefanos",
